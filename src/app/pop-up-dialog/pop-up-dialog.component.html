@@ -1,0 +1,49 @@
+<div class="dialog-container">
+  <form #form [formGroup]="movieDetailsForm">
+    <h1 mat-dialog-title>{{dialogType | titlecase}} Movie</h1>
+    <div mat-dialog-content>
+      <div *ngIf="dialogType !== PopUpDialogType.DELETE; else deleteView">
+        <div>
+          <label>Title:</label>
+          <mat-form-field class="long-input">
+            <input matInput value="{{movieInfo.title}}" formControlName="title" type="text">
+          </mat-form-field>
+        </div>
+        <div>
+          <label>Genre:</label>
+          <mat-form-field>
+            <input matInput value="{{movieInfo.genre}}" formControlName="genre" type="text">
+          </mat-form-field>
+        </div>
+        <div>
+          <label>Director:</label>
+          <mat-form-field>
+            <input matInput value="{{movieInfo.director}}" formControlName="director" type="text">
+          </mat-form-field>
+        </div>
+        <div>
+          <label>Year:</label>
+          <mat-form-field>
+            <input matInput value="{{movieDetailsForm.get('year').value}}" formControlName="year" type="number">
+          </mat-form-field>
+        </div>
+        <div>
+          <label>Runtime:</label>
+          <mat-form-field>
+            <input matInput value="{{movieDetailsForm.get('runTime').value}}" formControlName="runTime" type="text">
+          </mat-form-field>
+        </div>
+      </div>
+      <ng-template #deleteView>
+        <p>Are you sure you wan't to delete the movie <span class="bold-movie-name">'{{movieInfo.title}}'</span>?</p>
+      </ng-template>
+    </div>
+
+    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="space-around center">
+      <button fxFlex="30%" mat-button (click)="onNoClick()">Cancel</button>
+      <button fxFlex="30%" mat-button (click)="onActionClick()" [disabled]="movieDetailsForm.invalid">
+        {{dialogType === PopUpDialogType.DELETE ? dialogType : 'save' | titlecase}}
+      </button>
+    </div>
+  </form>
+</div>

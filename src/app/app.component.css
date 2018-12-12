@@ -1,0 +1,12 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/deep/body {
+   background-color: #d3d3d33d;
+ }
+
+h1 {
+  text-align: center;
+  font-size: 6vw;
+  font-family: Charter;
+}
+

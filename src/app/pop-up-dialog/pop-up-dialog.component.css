@@ -1,0 +1,39 @@
+label {
+  font-weight: bold;
+}
+
+p {
+  text-align: center;
+}
+
+.dialog-container {
+  margin: 0 auto;
+}
+
+.movie-name {
+  font-size: 15px;
+}
+
+.bold-movie-name{
+  font-weight: bold;
+}
+
+.mat-dialog-title {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.full-width {
+  width: 80%;
+  margin: 5px;
+}
+
+/deep/.mat-form-field-infix {
+  min-width: 30vh!important;
+  width: 30vw!important;
+  border-top-width: 0;
+}
+
+/deep/.mat-form-field-wrapper {
+  margin-left: 10px;
+}

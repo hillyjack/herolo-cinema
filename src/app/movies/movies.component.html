@@ -1,0 +1,25 @@
+<i class="material-icons add-movie-icon" (click)="addMovie()">library_add</i>
+<div class="container" fxLayout="row" fxLayoutAlign="space-around center" fxLayout.sm="column">
+  <div *ngFor="let movie of moviesDetails">
+    <mat-card class="movie-card" fxFlex fxLayout="column" fxLayoutAlign="space-around">
+      <div fxflex="30%">
+        <mat-card-header>
+          <mat-card-title>{{movie.title | titlecase }}</mat-card-title>
+          <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <h4> Director: {{movie.director}} </h4>
+          <h4> Year: {{movie.year}} </h4>
+          <h4> Runtime: {{movie.runTime}} </h4>
+        </mat-card-content>
+      </div>
+      <img fxFlex mat-card-image src="{{movie.imgUrl}}" alt="Photo of {{movie.title}}">
+
+      <mat-card-actions fxFlex="10%" fxLayout="row" fxLayoutAlign="space-around center">
+        <button fxFlex="30%" mat-button (click)="editMovie(movie)">EDIT</button>
+        <button fxFlex="30%" mat-button (click)="deleteMovie(movie)">DELETE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
